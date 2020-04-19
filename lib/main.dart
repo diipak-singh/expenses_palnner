@@ -11,7 +11,26 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter App',
+      title: 'My Expenses',
+      theme: ThemeData(
+          primarySwatch: Colors.purple,
+          accentColor: Colors.amber,
+          fontFamily: 'Quicksand',
+          textTheme: ThemeData.light().textTheme.copyWith(
+                  title: TextStyle(
+                fontFamily: 'OpenSans',
+                fontWeight: FontWeight.bold,
+                fontSize: 18,
+              )),
+          appBarTheme: AppBarTheme(
+            textTheme: ThemeData.light().textTheme.copyWith(
+                  title: TextStyle(
+                    fontFamily: 'OpenSans',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+          )),
       home: MyHomePage(),
       debugShowCheckedModeBanner: false,
     );
@@ -29,14 +48,14 @@ class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
     Transaction(
       id: '1',
-      title: 'new laptop',
-      amount: 1700.0,
+      title: 'Shoes',
+      amount: 70.0,
       date: DateTime.now(),
     ),
     Transaction(
       id: '2',
-      title: 'new mobile phone',
-      amount: 250.0,
+      title: 'Shocks',
+      amount: 10.0,
       date: DateTime.now(),
     ),
   ];
@@ -70,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Flutter App'),
+        title: Text('My Expenses'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.add),
