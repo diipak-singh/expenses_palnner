@@ -1,11 +1,22 @@
 import './widgets/transaction_list.dart';
+import 'package:flutter/services.dart';
 import './widgets/new_transactions.dart';
 import 'package:flutter/material.dart';
 import './models/transaction.dart';
 import './widgets/chart.dart';
 //import 'package:expenses_planner/transaction.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  //to lock app in portrait mode.
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+    [
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ],
+  );
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
